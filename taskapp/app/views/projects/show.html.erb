@@ -1,0 +1,21 @@
+<h1><%= @project.title %></h1>
+
+<div id="count">
+<%= render partial: 'projects/count' %>
+</div>
+
+<ul>
+<% @project.tasks.each do |task| %>
+<li>
+  <%= link_to task.title, project_task_path(task.project_id, task.id), method: :get %>
+  <%= task.id %>
+  <%= link_to "[Delete]", project_task_path(task.project_id, task.id), method: :delete, data: { confirm: "are you sure?" } %>
+</li>
+<% end %>
+<li>
+  <%= form_for [@project, @project.tasks.build] do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit %>
+  <% end %>
+</li>
+</ul>

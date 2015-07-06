@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+P1:
+  id: 1
+  title: プロジェクトAAA
+
+P2:
+  id: 2
+  title: プロジェクトBBB
+
+P3:
+  id: 3
+  title: プロジェクトCCC

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+yyamada:
+  id: 1
+  username: yyamada
+
+isatou:
+  id: 2
+  username: isatou
+
+hsuzuki:
+  id: 3
+  username: hsuzuki
+
+tyamamoto:
+  id: 4
+  username: tyamamoto
+
+shayashi:
+  id: 5
+  username: shayashi

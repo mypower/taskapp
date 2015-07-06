@@ -1,0 +1,17 @@
+<h1><%= @task.title %></h1>
+
+<%= @task.id %>
+<%= @task.project.title %>
+<%= link_to "[Delete]", project_task_path(@task.project_id, @task.id), method: :delete, data: { confirm: "are you sure?" } %>
+
+<% if Work.where('user_id = ? AND task_id = ? AND done = ?',@user.id, @task.id, true).first then %>
+<div id="task-<%= @task.id %>">
+<%= render partial: 'users/complete_btn',
+  locals: {user_id: @user.id, task_id: @task.id} %>
+</div>
+<% else %>
+<div id="task-<%= @task.id %>">
+<%= render partial: 'users/incomplete_btn',
+  locals: {user_id: @user.id, task_id: @task.id} %>
+</div>
+<% end %>

@@ -1,0 +1,27 @@
+<h1><%= @user.username %></h1>
+
+<div id="count">
+<%= render partial: 'users/count' %>
+</div>
+
+<ul>
+<% @tasks.each do |task| %>
+<li>
+  <%= link_to task.title, project_task_path(task.project_id, task.id), method: :get %>
+  <%= task.id %>
+  <%= task.project_id %>
+  <%= task.project.title %>
+  <% if Work.where('user_id = ? AND task_id = ? AND done = ?',@user.id, task.id, true).first then %>
+  <div id="task-<%= task.id %>">
+  <%= render partial: 'users/complete_btn',
+    locals: {user_id: @user.id, task_id: task.id} %>
+  </div>
+  <% else %>
+  <div id="task-<%= task.id %>">
+  <%= render partial: 'users/incomplete_btn',
+    locals: {user_id: @user.id, task_id: task.id} %>
+  </div>
+  <% end %>
+</li>
+<% end %>
+</ul>
